@@ -1,0 +1,61 @@
+﻿        <form name="gForm" novalidate>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <button class="btn btn-success" ng-click="NoteCtrl.Create();">Create</button>
+                        <button class="btn btn-success" ng-click="NoteCtrl.toggleDetails();">Details</button>
+                        <a class="btn btn-success" ng-click="NoteCtrl.toggleDetails();">
+                            <span class="glyphicon pull-right" ng-class="{'glyphicon-chevron-right': !NoteCtrl.showDetails, 'glyphicon-chevron-left': NoteCtrl.showDetails}"></span>
+                            More
+                        </a>
+                    </div>
+                <div class="panel-body">
+                        <div class="form-group">
+                            <label class="control-label">Text</label>
+                            <textarea class="text-muted form-control" ng-model="NoteCtrl.message.Text"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Url</label>
+                            <input type="text" class="form-control" value="{{NoteCtrl.message.Url}}" />
+                </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-6" ng-show="NoteCtrl.showDetails">
+                <div class="panel panel-info">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" name="password" class="form-control"
+                                       ng-model="NoteCtrl.message.PasswordHash" required />
+                                <div ng-messages="gForm.password.$error">
+                                    <div ng-messages-include="MessagesForm.html"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" name="confirmPassword" class="form-control"
+                                   ng-model="NoteCtrl.confirmPassword"
+                                required compare-to="message.Password" />
+                                <div ng-messages="gForm.confirmPassword.$error">
+                                    <div ng-messages-include="MessagesForm.html"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Delete after:</label>
+                            <select class="form-control" ng-model="NoteCtrl.message.HoursToDelete">
+                                    <option value="0">Read</option>
+                                    <option value="1">1 hour</option>
+                                    <option value="24">24 hours</option>
+                                    <option value="168">1 week</option>
+                                    <option value="720">1 month</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+        </form>

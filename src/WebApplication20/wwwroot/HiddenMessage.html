@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="js/vendor.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/vendor.min.css" />
+    <script type="text/javascript" src="js/hiddenApp.js"></script>
+    <script src="js/hiddencontroller.js"></script>
+</head>
+<body ng-app="hiddenApp" ng-controller="hiddenController">
+    <header>Note is exist!</header>
+    <div class="row">
+        <div class="panel col-sm-5">
+            <div class="panel-body">
+                <!--<textarea class="text-muted form-control" ng-model="messagetext"></textarea>-->
+                <input type="text" value="{{messagetext}}" />
+                <label>Enter password if necessary</label>
+                <input type="text" value="{{HiddenMessage.PasswordHash}}"/>
+            </div>
+            <div class="panel-body col-md-2">
+                <button class="btn btn-success" ng-click="LoadNote()">Read the note</button>
+            </div>
+            <div class="panel-body col-md-2">
+                <button class="btn btn-danger">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+</html>
